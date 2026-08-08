@@ -1,0 +1,28 @@
+{
+  "name": "sanchar",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Sanchar — WhatsApp Business Cloud API runtime: signature-verified webhook ingest, deterministic conversation state machine, full message audit log.",
+  "scripts": {
+    "dev": "node --import tsx src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "migrate": "node --import tsx src/db/migrate.ts",
+    "test": "node --import tsx scripts/test.ts",
+    "mock": "node --import tsx scripts/mock-meta.ts",
+    "repl": "node --import tsx scripts/mock-meta.ts --repl",
+    "wipe": "rm -f data/sanchar.db data/sanchar.db-wal data/sanchar.db-shm && node --import tsx src/db/migrate.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.5.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
